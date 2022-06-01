@@ -9,15 +9,15 @@ router.get('/',(req,res)=>{
 });
 
 router.get('/home',(req,res)=>{
-    res.send('Home');
+    res.render('home');
 });
 
 router.get('/about',(req,res)=>{
-    res.send('about');
+    res.render('about');
 });
 
 router.get('/contact',(req,res)=>{
-    res.send('contact');
+    res.render('contact');
 });
 
 export default router;

@@ -5,6 +5,16 @@ import router from './routes/index.js'
 
 const app = express();
 
+//add view engine
+app.set('view engine', 'pug');
+/* also can be others like:
+app.set('view engine', 'jade');
+app.set('view engine' 'handlebars');
+app.set('view engine' 'ejs');
+app.set('view engine' 'html');
+app.set('view engine' 'jsx');
+*/
+
 //set port or default port
 const port = process.env.PORT || 4000;
 
