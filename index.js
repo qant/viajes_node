@@ -7,6 +7,8 @@ const app = express();
 
 //add view engine
 app.set('view engine', 'pug');
+
+app.use(express.static('assets'));
 /* also can be others like:
 app.set('view engine', 'jade');
 app.set('view engine' 'handlebars');
