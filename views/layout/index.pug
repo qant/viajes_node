@@ -7,7 +7,9 @@ html(lang="en")
         link(rel="stylesheet", href="css/bootstrap.css")
         link(rel="stylesheet", href="css/style.css")
         link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Staatliches&display=swap")
-        title Express Pug Node
+        title= title
+        meta(name='description' content= description)
+        meta(name='author' content='John Doe')
     body 
     include header.pug
     block content
