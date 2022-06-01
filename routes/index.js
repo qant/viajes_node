@@ -9,7 +9,8 @@ router.get('/',(req,res)=>{
 });
 
 router.get('/home',(req,res)=>{
-    res.render('home');
+    const descr = {id:123, data:'Text'};
+    res.render('home',{descr});
 });
 
 router.get('/about',(req,res)=>{
