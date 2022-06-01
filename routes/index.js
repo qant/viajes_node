@@ -3,8 +3,8 @@ import express from 'express';
 const router = express.Router();
 
 router.get('/',(req,res)=>{
-    console.log(`listening GET /`);        
-    res.send('Text Bla bla');
+    console.log(`listening GET /`);            
+    res.render('home');
     //res.json({success: true, id: 1234});    
 });
 
