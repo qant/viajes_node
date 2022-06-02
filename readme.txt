@@ -29,3 +29,7 @@ to run this index.js app we need to add this line to package.json
   create db connect using sequelize
 
   --------------
+
+  MVC
+
+  routers
