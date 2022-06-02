@@ -1,5 +1,22 @@
 extends ./layout/index
 
 block content
-    h3=title
-    p #{description}
+    main.container.mt-5
+        .row
+            .col-md-5
+                img.img-fluid(src="/img/nosotros.jpg", alt=title)
+            .col-md-7
+                h3=title
+                p #{description}
+    .listado-iconos
+        .container.mt-5.py-5.text-center 
+            .row 
+                .col-md-4
+                    img(src="img/icono_seguridad.svg", alt="Security")
+                    h2.mb-4 Security
+                .col-md-4
+                    img(src="img/icono_destinos.svg", alt="Destination")
+                    h2.mb-4 Destination
+                .col-md-4
+                    img(src="img/icono_precios.svg", alt="Prices")
+                    h2.mb-4 Prices

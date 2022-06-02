@@ -27,7 +27,7 @@ app.use((req, res, next)=>{
     //console.log(res);
 });
 //set port or default port
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 8000;
 
 app.use('/',router);
 
