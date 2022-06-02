@@ -2,8 +2,17 @@
 //const express = require('express');
 import express from 'express';
 import router from './routes/index.js'
+import db from './db.js';
 
 const app = express();
+
+db.authenticate()
+.then(()=>{
+    console.log('connected!');
+})
+.catch(err=>{
+    console.error('error!',err);
+})
 
 //add view engine
 app.set('view engine', 'pug');
