@@ -31,5 +31,6 @@ to run this index.js app we need to add this line to package.json
   --------------
 
   MVC
-
   routers
+  mysql query
+  https://sequelize.org/docs/v6/core-concepts/model-querying-basics/
