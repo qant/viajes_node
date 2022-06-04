@@ -1,4 +1,6 @@
-const pageHome = (req,res) =>{
+import { Viajes } from '../models/Viajes.js'
+
+const pageHome = (req,res) =>{        
         const page = {
             title:'Home',
             description:'This is Home description'
@@ -22,10 +24,15 @@ const pageContact = (req,res)=>{
     res.render('contact', page);
 }
 
-const pageTours = (req,res)=>{
+const pageTours = async (req,res)=>{
+    
+    const tours = await Viajes.findAll();
+    console.log(tours);
+
     const page = {
-        title:'Tours',
-        description:'This is Tours description'
+        title:'Next Tours',
+        description:'This is Tours description',
+        tours
     };
     res.render('tours', page);
 }

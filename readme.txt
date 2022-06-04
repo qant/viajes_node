@@ -34,3 +34,13 @@ to run this index.js app we need to add this line to package.json
   routers
   mysql query
   https://sequelize.org/docs/v6/core-concepts/model-querying-basics/
+
+  NOTE: try to use smaller fater alternative as: 
+  https://github.com/mysqljs/mysql
+
+  -------------
+
+  Icons useful https://tablericons.com/
+  get icon go to html to pug and put code to the .pug files
+
+  -------

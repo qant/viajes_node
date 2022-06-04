@@ -21,9 +21,9 @@ export const Viajes = db.define('viajes', {
         type: Sequelize.STRING
     },
     disponibles:{
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
     },
     slug:{
-        type: Sequalize.STRING
+        type: Sequelize.STRING
     }
 });
