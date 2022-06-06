@@ -27,7 +27,7 @@ const pageContact = (req,res)=>{
 const pageTours = async (req,res)=>{
     
     const tours = await Viajes.findAll();
-    console.log(tours);
+    //console.log(tours);
 
     const page = {
         title:'Next Tours',
@@ -36,6 +36,44 @@ const pageTours = async (req,res)=>{
     };
     res.render('tours', page);
 }
+
+const pageTour = async (req,res)=>{
+    
+    try{
+        const {slug} = req.params;
+
+        const result = await Viajes.findOne(
+            {
+                where:{
+                    //'slug': Tour
+                    slug
+                }
+            }
+        );
+
+        console.log(result);
+            console.info('FOUND!');
+            //console.log(JSON.stringify(result));
+            res.render('tour', {
+                title: 'INFO',
+                result
+            });
+        
+    }catch(err){
+        console.error('MYSQL ERROR!', err);
+            const page = {
+                title:'MYSQL ERROR!',
+                description:'MYSQL ERROR '+ JSON.stringify(err) +' ON slug: "'+req.params.tour +'" NOT FOUND!'
+            };
+            res.render('404', page);
+    }
+    
+
+    
+
+}
+
+
 const pageTestimonials = (req,res)=>{
     const page = {
         title:'Testimonials',
@@ -49,5 +87,6 @@ export {
     pageAbout, 
     pageContact,
     pageTours,
+    pageTour,
     pageTestimonials
 }
