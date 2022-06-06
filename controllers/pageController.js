@@ -79,7 +79,7 @@ const pageTestimonials = (req,res)=>{
         title:'Testimonials',
         description:'This is Testimonials description'
     };
-    res.render('tours', page);
+    res.render('testimonials', page);
 }
 
 export {
