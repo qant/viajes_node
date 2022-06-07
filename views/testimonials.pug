@@ -1,5 +1,26 @@
 extends ./layout/index
 
 block content
-    h3=title
-    p #{description}
+    main.container.mt-5
+        div.text-center
+            h1=title
+            p #{description}
+        .row
+
+
+            h2.d-block.w-100.text-center Add the Review
+
+
+            .row.justify-content-center.col
+                .col-md-8
+                    form(action="" method="post") 
+                    .form-group
+                        label(for="name") Name 
+                        input#name(type="text", placeholder="Your Name", name="name", class="form-control")
+                    .form-group
+                        label(for="email") Email 
+                        input#email(type="text", placeholder="Your email", name="email", class="form-control")
+                    .form-group
+                        label(for="message") Message 
+                        textarea#message(class="form-control", name="message", placeholder="Your message", row=3)
+                    input.btn.btn-success.btn-block(type="button", value="Send")
