@@ -24,6 +24,9 @@ app.set('view engine' 'html');
 app.set('view engine' 'jsx');
 */
 
+//Add boy parser for form post data
+app.use(express.urlencoded({extended: true}));
+
 //static files
 app.use(express.static('assets'));
 

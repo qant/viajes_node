@@ -8,6 +8,8 @@ import {
     pageTestimonials
 } from '../controllers/pageController.js'
 
+import saveTestimonials from '../controllers/testimonialsController.js';
+
 const router = express.Router();
 
 router.get('/',pageHome);
@@ -17,5 +19,6 @@ router.get('/contact',pageContact);
 router.get('/tours',pageTours);
 router.get('/tours/:slug', pageTour);
 router.get('/testimonials',pageTestimonials);
+router.post('/testimonials',saveTestimonials);
 
 export default router;

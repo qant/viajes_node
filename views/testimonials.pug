@@ -13,14 +13,14 @@ block content
 
             .row.justify-content-center.col
                 .col-md-8
-                    form(action="" method="post") 
-                    .form-group
-                        label(for="name") Name 
-                        input#name(type="text", placeholder="Your Name", name="name", class="form-control")
-                    .form-group
-                        label(for="email") Email 
-                        input#email(type="text", placeholder="Your email", name="email", class="form-control")
-                    .form-group
-                        label(for="message") Message 
-                        textarea#message(class="form-control", name="message", placeholder="Your message", row=3)
-                    input.btn.btn-success.btn-block(type="button", value="Send")
+                    form(action="/testimonials" method="post") 
+                        .form-group
+                            label(for="name") Name 
+                            input#name(type="text", placeholder="Your Name", name="name", class="form-control")
+                        .form-group
+                            label(for="email") Email 
+                            input#email(type="text", placeholder="Your email", name="email", class="form-control")
+                        .form-group
+                            label(for="message") Message 
+                            textarea#message(class="form-control", name="message", placeholder="Your message", row=3)
+                        input.btn.btn-success.btn-block(type="submit", value="Send")
