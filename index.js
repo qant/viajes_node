@@ -7,11 +7,11 @@ import db from './db.js';
 const app = express();
 
 db.authenticate()
-.then(()=>{
-    console.log('connected!');
+.then((db)=>{
+    console.log('db connected!'. db);
 })
 .catch(err=>{
-    console.error('error!',err);
+    console.error('ab authenticate error!',err);
 })
 
 //add view engine
@@ -39,7 +39,7 @@ app.use((req, res, next)=>{
     //console.log(res);
 });
 //set port or default port
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 4000;
 
 app.use('/',router);
 
