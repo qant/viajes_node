@@ -1,3 +1,5 @@
+import Testimonials from '../models/Testimonials.js'
+
 const saveTestimonials = (req,res)=>{
 
     console.log(req.body);
@@ -17,10 +19,22 @@ const saveTestimonials = (req,res)=>{
         const title = 'Testimonials';
         const description = 'Testimonials has an ERROR!';
         res.render('testimonials', {title, description,errors, name, email, message});
+    
     }else{
+
         const title = 'Testimonials';
         const description = 'Testimonials has beed added successfully!';
-        res.render('testimonials', {title, description,errors, name, email, message});
+
+        const result = Testimonials.create({
+            //id: null,
+            name: name, 
+            email: email, 
+            message: message,
+        });
+
+        //console.log(result);
+        res.render('testimonials', {title, description});
+
     }
     
     
