@@ -1,6 +1,6 @@
 import Testimonials from '../models/Testimonials.js'
 
-const saveTestimonials = (req,res)=>{
+const saveTestimonials = async (req,res)=>{
 
     console.log(req.body);
     const {name, email, message} = req.body;
@@ -25,21 +25,22 @@ const saveTestimonials = (req,res)=>{
         const title = 'Testimonials';
         const description = 'Testimonials has beed added successfully!';
 
-        const result = Testimonials.create({
-            //id: null,
-            name: name, 
-            email: email, 
-            message: message,
-        });
-
-        //console.log(result);
-        res.render('testimonials', {title, description});
+        try {
+            await Testimonials.create({
+                //id: null,
+                name: name, 
+                email: email, 
+                message: message,
+            })
+            res.render('testimonials', {title, description});
+        }catch(err){
+            console.log('Mysql error! ', err);
+            const error = 'Mysql error! '. err;
+            res.render('testimonials', {title, description, error });
+        }
 
     }
-    
-    
     //console.log(errors);
-
 }
 
 export default saveTestimonials;
