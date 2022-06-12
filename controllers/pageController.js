@@ -77,7 +77,9 @@ const pageTour = async (req,res)=>{
 
 const pageTestimonials = async (req,res)=>{
     try {
-        const testimonials = await Testimonials.findAll();
+        const testimonials = await Testimonials.findAll({order: [
+            ['id', 'DESC']
+        ]});
         
         const page = {
             title:'Testimonials',
