@@ -3,24 +3,36 @@ import Testimonials from '../models/Testimonials.js'
 
 
 const pageHome = async (req,res) =>{    
+    try {
+        //IMPORTANT: async await block operation 
+        const promisesDB = [];
 
-    const tours = await Viajes.findAll({limit:3});
-    const testimonials = await Testimonials.findAll({
-        limit:3,
-        order: [['id','DESC']]        
-    });
+        promisesDB.push(Viajes.findAll({limit:3}));
+        promisesDB.push(Testimonials.findAll({
+            limit:3,
+            order: [['id','DESC']]        
+        })
+        );
 
-    const page = {
-        title:'About US',
-        description:'About US text About US text About US text About US text About US text About US text About US text About US text About US text About US text ',
-        slider_header: 'Rio de Janeiro',
-        slider_description: 'Adwenture',
-        clase: 'home',
-        tours,
-        testimonials
-    };
+        const result = await Promise.all(promisesDB)
+        
+        const page = {
+            title:'About US',
+            description:'About US text About US text About US text About US text About US text About US text About US text About US text About US text About US text ',
+            slider_header: 'Rio de Janeiro',
+            slider_description: 'Adwenture',
+            clase: 'home',
+            tour: result[0],
+            testimonials: result[1]
+        };
 
-    res.render('home',page);
+        console.log(page);
+
+        res.render('home',page);
+    } catch (error) {
+        console.error(error);    
+    }
+    
 };
 
 const pageAbout = (req,res) =>{
