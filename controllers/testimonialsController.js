@@ -19,7 +19,7 @@ const saveTestimonials = async (req,res)=>{
         const title = 'Testimonials';
         const description = 'Testimonials has an ERROR!';
         res.render('testimonials', {title, description,errors, name, email, message});
-    
+        console.log(errors);
     }else{
 
         const title = 'Testimonials';
@@ -31,8 +31,8 @@ const saveTestimonials = async (req,res)=>{
                 name: name, 
                 email: email, 
                 message: message,
-            })
-            res.render('testimonials', {title, description});
+            })            
+            res.redirect('testimonials');
         }catch(err){
             console.log('Mysql error! ', err);
             const error = 'Mysql error! '. err;

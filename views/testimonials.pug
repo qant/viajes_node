@@ -5,11 +5,24 @@ block content
         div.text-center
             h1=title
             p #{description}
-
-            if (errors) 
-                each error in errors
-                    p.alert.alert-danger=error
-                //p= JSON.stringify(errors)
+        if (testimonials)
+            //p= JSON.stringify(testimonials)
+            blockquote.text-center What our clients saying about us
+            .row.testimoniales             
+                each testimonial in testimonials
+                    .col-md-6.col-lg-4.mb-4 
+                        .card
+                            .card-body 
+                                blockquote.blockquote 
+                                p.mb-0 
+                                    | #{testimonial.message}
+                                footer.blockquote-footer
+                                    | #{testimonial.name}                                
+                
+        if (errors) 
+            each error in errors
+                p.alert.alert-danger=error
+            //p= JSON.stringify(errors)
         .row
 
 
