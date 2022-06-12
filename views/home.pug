@@ -1,5 +1,16 @@
 extends ./layout/index
 
+block slider
+    .slider
+        h1= slider_header 
+        em= slider_description
+
 block content
-    h3=title
-    p #{description}
+    main.container.mt-5
+        h2.text-center.mb-5= title                    
+        .row.mb-5                    
+            .col-md-6
+                p= description
+                p= description
+            .col-md-6
+                img(src="/img/inicio_nosotros.jpg", alt ="", class="img-fluid")

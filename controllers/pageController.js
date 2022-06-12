@@ -2,12 +2,17 @@ import { Viajes } from '../models/Viajes.js'
 import Testimonials from '../models/Testimonials.js'
 
 
-const pageHome = (req,res) =>{        
-        const page = {
-            title:'Home',
-            description:'This is Home description'
-        };
-        res.render('home',page);
+const pageHome = (req,res) =>{    
+
+    const page = {
+        title:'About US',
+        description:'About US text About US text About US text About US text About US text About US text About US text About US text About US text About US text ',
+        slider_header: 'Rio de Janeiro',
+        slider_description: 'Adwenture',
+        clase: 'home',
+    };
+    
+    res.render('home',page);
 };
 
 const pageAbout = (req,res) =>{
