@@ -5,6 +5,10 @@ import Testimonials from '../models/Testimonials.js'
 const pageHome = async (req,res) =>{    
 
     const tours = await Viajes.findAll({limit:3});
+    const testimonials = await Testimonials.findAll({
+        limit:3,
+        order: [['id','DESC']]        
+    });
 
     const page = {
         title:'About US',
@@ -12,7 +16,8 @@ const pageHome = async (req,res) =>{
         slider_header: 'Rio de Janeiro',
         slider_description: 'Adwenture',
         clase: 'home',
-        tours
+        tours,
+        testimonials
     };
 
     res.render('home',page);

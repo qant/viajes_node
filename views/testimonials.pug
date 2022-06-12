@@ -8,16 +8,7 @@ block content
         if (testimonials)
             //p= JSON.stringify(testimonials)
             blockquote.text-center What our clients saying about us
-            .row.testimoniales             
-                each testimonial in testimonials
-                    .col-md-6.col-lg-4.mb-4 
-                        .card
-                            .card-body 
-                                blockquote.blockquote 
-                                p.mb-0 
-                                    | #{testimonial.message}
-                                footer.blockquote-footer
-                                    | #{testimonial.name}                                
+            include testimonials_block                             
                 
         if (errors) 
             each error in errors
