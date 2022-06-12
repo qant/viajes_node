@@ -2,7 +2,9 @@ import { Viajes } from '../models/Viajes.js'
 import Testimonials from '../models/Testimonials.js'
 
 
-const pageHome = (req,res) =>{    
+const pageHome = async (req,res) =>{    
+
+    const tours = await Viajes.findAll({limit:3});
 
     const page = {
         title:'About US',
@@ -10,8 +12,9 @@ const pageHome = (req,res) =>{
         slider_header: 'Rio de Janeiro',
         slider_description: 'Adwenture',
         clase: 'home',
+        tours
     };
-    
+
     res.render('home',page);
 };
 
