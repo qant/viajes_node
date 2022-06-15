@@ -1,29 +1,10 @@
-import Sequelize from 'sequelize';
 import db from '../db.js';
 
-export const Viajes = db.define('viajes', {
-    titulo:{
-        type: Sequelize.STRING
-    },
-    precio:{
-        type: Sequelize.STRING
-    },
-    fecha_ida:{
-        type: Sequelize.DATE
-    },
-    fecha_vuelta:{
-        type: Sequelize.DATE
-    },
-    imagen:{
-        type: Sequelize.STRING
-    },
-    descripcion:{
-        type: Sequelize.STRING
-    },
-    disponibles:{
-        type: Sequelize.INTEGER
-    },
-    slug:{
-        type: Sequelize.STRING
-    }
+export default Viajes = 
+    db.query('select * from viajes order by id desc', 
+    function(error, results,fields){
+    if (error) throw error;    
+    //todo: for each neccesary fields
+    
+    //console.log('viajes ok', results[0].length);
 });

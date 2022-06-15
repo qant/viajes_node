@@ -6,13 +6,7 @@ import db from './db.js';
 
 const app = express();
 
-db.authenticate()
-.then((db)=>{
-    console.log('db connected!'. db);
-})
-.catch(err=>{
-    console.error('ab authenticate error!',err);
-})
+
 
 //add view engine
 app.set('view engine', 'pug');

@@ -1,21 +1,9 @@
-import Sequelize from 'sequelize';
 import db from '../db.js';
 
-const Testimonials = db.define('testimonials', {
-    /*id:{
-        type: Sequelize.INTEGER,
-        autoIncrement: true,
-        primaryKey: true
-    },*/
-    name:{
-        type: Sequelize.STRING
-    },
-    email:{
-        type: Sequelize.STRING
-    },
-    message:{
-        type: Sequelize.STRING
-    }
+const Testimonials = db.query('SELECT * FROM testimonials order by id DESC',
+function(error, results, fields){
+    if (error) throw error;
+    //console.log('Testimonials ok!', results.length);
 });
 
 export default Testimonials;

@@ -1,4 +1,4 @@
-import Sequelize from 'sequelize';
+import mysql from 'mysql';
 /*root
   Password1.
 
@@ -6,22 +6,29 @@ import Sequelize from 'sequelize';
   ToursPass1.*/
 const dbName = 'tours'
 const dbUser = 'anton';
-const dbPassword = 'ToursPass1.'
+const dbPassword = 'ToursPass1.';
 
-const db = new Sequelize(dbName, dbUser, dbPassword,{
-    host: '127.0.0.1',
-    port: '3306',
-    dialect: 'mysql',
-    define:{
-      timestamps: false,
-    },
-    pool: {
-      max:5,
-      min:0,
-      acquuire: 30000,
-      iddle: 1000
-    },
-    operatorAliases:false
+const config = {
+  host: 'localhost',
+  user: 'anton',
+  password: 'ToursPass1.',
+  database: 'tours',
+  multipleStatements: true //'Select 1...; Select 2...'
+  //port: '3306',
+  //debug: true    
+};
+
+const db = mysql.createConnection(config);
+
+db.connect(function(err) {
+  if (err) {
+    console.error('error connecting: ' + err.stack);
+    return;
+  }
+  console.log('CONNECTED as id ' + db.threadId);
 });
+
+//console.log(db);
+//db.end(); //to close connection
 
 export default db;
